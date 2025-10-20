@@ -1,0 +1,21 @@
+[project]
+name = "DiveVisionApp"
+version = "0.1.0"
+description = "App to identify scenes in scuba diving footage"
+authors = [
+    {name = "Rhianna Leslie"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+]
+
+[dependency-groups]
+dev = [
+    "pandas (>=2.3.3,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
