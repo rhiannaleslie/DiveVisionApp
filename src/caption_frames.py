@@ -89,5 +89,3 @@ def caption_all_chunks(
     return existing
 
 
-if __name__ == "__main__":
-    caption_all_chunks()
