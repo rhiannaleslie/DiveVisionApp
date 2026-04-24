@@ -17,6 +17,10 @@ dependencies = [
     "torch>=2.11.0",
     "pillow>=12.2.0",
     "matplotlib>=3.10.9",
+    "chromadb>=1.5.8",
+    "path>=17.1.1",
+    "opencv-python-headless>=4.13.0.92",
+    "sentence-transformers>=5.4.1",
 ]
 
 [dependency-groups]
