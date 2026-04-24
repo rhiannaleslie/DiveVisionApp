@@ -27,11 +27,3 @@ def sanitise_filename(name: str) -> str:
     return re.sub(r"[^\w\-_.]", "_", name)
 
 
-def get_secret(pass_path: str) -> str:
-    result = subprocess.run(
-        ["pass", "show", pass_path],
-        capture_output=True,
-        text=True,
-        check=True
-    )
-    return result.stdout.strip()
