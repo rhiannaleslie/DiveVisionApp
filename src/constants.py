@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from src.utils import get_secret
 
 ROOT_DIR = Path(__file__).parent.parent
 
