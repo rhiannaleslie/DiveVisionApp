@@ -8,14 +8,31 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "ipykernel>=7.2.0,<8.0.0",
+    "opencv-python>=4.13.0.92,<5.0.0.0",
+    "exifread>=3.5.1,<4.0.0",
+    "hachoir>=3.3.0,<4.0.0",
+    "requests>=2.33.1",
+    "transformers>=5.6.2",
+    "torch>=2.11.0",
+    "pillow>=12.2.0",
+    "matplotlib>=3.10.9",
+    "chromadb>=1.5.8",
+    "path>=17.1.1",
+    "opencv-python-headless>=4.13.0.92",
+    "sentence-transformers>=5.4.1",
+    "ffmpeg-python>=0.2.0",
 ]
 
 [dependency-groups]
 dev = [
-    "pandas (>=2.3.3,<3.0.0)"
+    "pandas>=2.3.3,<3.0.0"
 ]
 
 
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
