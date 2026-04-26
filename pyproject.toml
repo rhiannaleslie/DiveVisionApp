@@ -30,6 +30,9 @@ dev = [
 ]
 
 
+[project.scripts]
+divevision-ingest = "src.ingestion_pipeline.cli:main"
+
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
 

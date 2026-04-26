@@ -5,12 +5,11 @@ from pathlib import Path
 from PIL import Image
 from transformers import BlipForConditionalGeneration, BlipProcessor
 
-from src.chunk_video import CHUNK_REGISTRY_JSON
-from src.constants import FRAMES_DIR, PROCESSED_DIR
-from src.extract_frames import chunk_output_dir
-from src.ingestion import load_registry
+from src.ingestion_pipeline.chunk_video import ChunkRegistry
+from src.constants import FRAMES_DIR, CAPTION_REGISTRY_JSON
+from src.ingestion_pipeline.extract_frames import FrameExtractor
+from src.ingestion_pipeline.ingestion import VideoRegistry
 
-CAPTION_REGISTRY_JSON = PROCESSED_DIR / "caption_registry.json"
 MODEL_ID = "Salesforce/blip-image-captioning-large"
 MAX_NEW_TOKENS = 50
 
@@ -45,8 +44,8 @@ def caption_all_chunks(
     Returns:
         The full caption registry dict (chunk_id -> record with captions).
     """
-    video_registry = load_registry()
-    chunk_registry: dict = json.loads(CHUNK_REGISTRY_JSON.read_text())
+    video_registry = VideoRegistry()
+    chunk_registry = ChunkRegistry().all()
 
     if chunk_ids is not None:
         chunk_registry = {cid: c for cid, c in chunk_registry.items() if cid in chunk_ids}
@@ -58,8 +57,8 @@ def caption_all_chunks(
     processor, model = load_model()
 
     for chunk_id, chunk in chunk_registry.items():
-        video_record = video_registry[chunk["video_id"]]
-        frames_dir = chunk_output_dir(chunk, video_record["filename"], FRAMES_DIR)
+        video_record = video_registry.get(chunk["video_id"])
+        frames_dir = FrameExtractor.chunk_output_dir(chunk, video_record["filename"], FRAMES_DIR)
 
         if not frames_dir.exists():
             print(f"Skipping {chunk_id}: frames dir not found ({frames_dir})")

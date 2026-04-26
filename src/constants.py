@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent.parent
@@ -15,6 +14,9 @@ MERGED_REGISTRY_JSON = PROCESSED_DIR / "merged_registry.json"
 
 # Frames
 FRAMES_DIR = PROCESSED_DIR / "frames"
+
+# Vector store
+VECTOR_STORE_DIR = PROCESSED_DIR / "vector_store"
 
 # Output paths
 OUTPUTS_DIR = ROOT_DIR / "outputs"
