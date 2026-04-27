@@ -1,4 +1,4 @@
-# DiveVisionApp
+# ![Status](https://img.shields.io/badge/status-in%20development-yellow) DiveVisionApp
 
 A retrieval-augmented generation (RAG) app for searching a personal scuba diving video library by visual features.
 
@@ -36,5 +36,3 @@ uv run python src/ingestion.py
 ## Example
 
 [notebooks/pipeline_test.ipynb](notebooks/pipeline_test.ipynb) contains a full end-to-end pipeline run across 3 dive videos — ingestion, chunking, frame extraction, and embedding in one place.
-
-![Status](https://img.shields.io/badge/status-in%20development-yellow)
