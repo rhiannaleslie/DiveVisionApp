@@ -4,7 +4,7 @@ A retrieval-augmented generation (RAG) app for searching a personal scuba diving
 
 ## Overview
 
-DiveVisionApp processes GoPro dive footage into a searchable library. Videos are ingested, chunked into scenes, and frames are extracted and embedded so that natural-language or feature-based queries can retrieve relevant moments — e.g. "find clips with a turtle" or "show me low-visibility drift dives".
+DiveVisionApp processes GoPro dive footage into a searchable library. Videos are ingested, chunked into scenes, and frames are extracted and embedded so that natural-language or feature-based queries can retrieve relevant moments, e.g. "find clips with a turtle"
 
 ## Rough aims
 
